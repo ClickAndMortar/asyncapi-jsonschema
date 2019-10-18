@@ -1,0 +1,27 @@
+{
+    "dependencies": {
+        "@symfony/webpack-encore": "^0.28.0",
+        "codemirror": "^5.49.2",
+        "copy-webpack-plugin": "^5.0.5",
+        "core-js": "^3.0.0",
+        "extract-loader": "^3.1.0",
+        "file-loader": "^4.2.0",
+        "highlight.js": "^9.16.2",
+        "html-loader": "^0.5.5",
+        "html-webpack-plugin": "^3.2.0",
+        "jquery": "^3.4.1",
+        "js-yaml": "^3.13.1",
+        "jsonpath": "^1.0.2",
+        "materialize-css": "^1.0.0-rc.2",
+        "regenerator-runtime": "^0.13.2",
+        "vue": "^2.6.10",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "MIT",
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    }
+}

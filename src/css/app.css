@@ -1,0 +1,24 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+#async-schema {
+    min-height: 100px;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.code, code {
+    font-family: 'Roboto Mono', monospace;
+}
+
+code {
+    padding: 0.5rem;
+    background: #e1e1e1;
+    width: 100%;
+    display: block;
+}

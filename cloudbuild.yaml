@@ -1,0 +1,12 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/asyncapi-jsonschema:$SHORT_SHA', '.' ]
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/asyncapi-jsonschema:$SHORT_SHA']
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['-n', 'asyncapi-jsonschema', 'set', 'image', 'deployment/website-app', 'app=eu.gcr.io/$PROJECT_ID/asyncapi-jsonschema:$SHORT_SHA']
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=${CLOUDSDK_COMPUTE_ZONE}'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLOUDSDK_CONTAINER_CLUSTER}'
+images:
+  - 'eu.gcr.io/$PROJECT_ID/asyncapi-jsonschema'

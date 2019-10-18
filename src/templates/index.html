@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AsyncAPI to JSON Schema converter</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Lato:400|Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Online AsyncAPI v2 to JSON Schema converter: validate your async messages"/>
+    <meta name="keywords" content="asyncapi, json, schema, pubsub, sns, rabbitmq, queue, async"/>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@ClickAndMortar_" />
+    <meta name="twitter:creator" content="@michaelbouvy" />
+    <meta property="og:url" content="https://asyncapi-jsonschema.com/" />
+    <meta property="og:title" content="AsyncAPI to JSON Schema online converter" />
+    <meta property="og:description" content="Easily extract a JSON schema from your AyncAPI v2 YAML contract." />
+    <meta property="og:image" content="https://asyncapi-jsonschema.com/images/favicon.png" />
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center-align">
+                <h1>AsyncAPI to JSON Schema online converter</h1>
+            </div>
+        </div>
+    </div>
+</header>
+<main id="app">
+    <div class="container">
+        <div class="row">
+            <form class="col s12" method="post">
+                <div class="row">
+                    <p>Simply paste your <a href="https://www.asyncapi.com/">AsyncAPI v2</a> YAML schema below, choose the channel and convert it to a JSON schema! 🚀</p>
+                    <p>
+                    <blockquote>
+                    🔒  Note that no data is stored on our servers, conversion is done on-the-fly in your browser.
+                    </blockquote>
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <label for="async-schema">AsyncAPI v2 schema</label>
+                        <textarea id="async-schema" class="code" v-on:change="fetchChannels"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="channel" name="channel">
+                            <option value="" disabled selected>Choose a channel</option>
+                            <option v-for="channel in channels" v-bind:key="channel">{{ channel }}</option>
+                        </select>
+                        <label>Channel</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <a class="waves-effect waves-light btn" @click="convert"><i class="material-icons left">code</i>Convert to JSON Schema</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <div class="progress" v-if="loading">
+                    <div class="indeterminate"></div>
+                </div>
+                <pre><code id="json-schema" class="json" v-if="jsonSchema">{{ jsonSchema }}</code></pre>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="page-footer">
+    <div class="footer-copyright">
+        <div class="container center-align">
+            Made with 💙 in Paris, FR by <a href="https://clickandmortar.fr" class="grey-text text-lighten-4">Click &amp; Mortar</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
