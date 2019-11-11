@@ -9,4 +9,4 @@ steps:
       - 'CLOUDSDK_COMPUTE_ZONE=${_CLOUDSDK_COMPUTE_ZONE}'
       - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLOUDSDK_CONTAINER_CLUSTER}'
 images:
-  - 'eu.gcr.io/$PROJECT_ID/asyncapi-jsonschema'
+  - 'eu.gcr.io/$PROJECT_ID/asyncapi-jsonschema:$SHORT_SHA'
