@@ -6,7 +6,7 @@ steps:
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['-n', 'asyncapi-jsonschema', 'set', 'image', 'deployment/website-app', 'app=eu.gcr.io/$PROJECT_ID/asyncapi-jsonschema:$SHORT_SHA']
     env:
-      - 'CLOUDSDK_COMPUTE_ZONE=${CLOUDSDK_COMPUTE_ZONE}'
+      - 'CLOUDSDK_COMPUTE_ZONE=${_CLOUDSDK_COMPUTE_ZONE}'
       - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLOUDSDK_CONTAINER_CLUSTER}'
 images:
   - 'eu.gcr.io/$PROJECT_ID/asyncapi-jsonschema'
