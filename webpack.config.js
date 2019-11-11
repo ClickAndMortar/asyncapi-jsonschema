@@ -9,7 +9,7 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 Encore
     .setOutputPath('build/')
     .setPublicPath('/')
-    .addEntry('app', './assets/js/app.js')
+    .addEntry('app', './src/js/app.js')
     .enableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
@@ -26,11 +26,11 @@ config.watchOptions = {
 };
 
 config.plugins.push(new CopyPlugin([
-    {from: 'assets/images/*', to: 'images/', flatten: true}
+    {from: 'src/images/*', to: 'images/', flatten: true}
 ]));
 
 config.plugins.push(new HtmlWebpackPlugin({
-    template: 'assets/index.html',
+    template: 'src/templates/index.html',
     hash: true,
 }));
 
